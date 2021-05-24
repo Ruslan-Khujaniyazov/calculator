@@ -1,193 +1,293 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <EditText
+    <TextView
         android:id="@+id/editTextNumberDecimal"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="2"
+        android:layout_margin="@dimen/text_view_margin"
+        android:paddingEnd="@dimen/text_view_padding"
+        android:paddingStart="@dimen/text_view_padding"
+        android:layout_weight="1"
+        android:background="@color/transparent_grey"
         android:ems="10"
-        android:inputType="numberDecimal" />
+        android:gravity="bottom|end"
+        android:hint="@string/start_hint_0"
+        android:textAlignment="gravity"
+        android:textSize="@dimen/text_view_text_size" />
 
-    <LinearLayout
+    <TableLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_weight="2">
 
-        <Button
-            android:id="@+id/button_clear"
-            android:layout_width="@dimen/number_button_width"
-            android:layout_height="@dimen/number_button_height"
-            android:layout_margin="@dimen/button_margin"
-            android:text="@string/button_clear" />
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
 
-        <Button
-            android:id="@+id/button_delete"
-            android:layout_width="@dimen/number_button_width"
-            android:layout_height="@dimen/number_button_height"
-            android:layout_margin="@dimen/button_margin"
-            android:text="@string/button_delete" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button_clear"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/button_margin"
+                android:layout_weight="1"
+                android:backgroundTint="@color/transparent_grey"
+                android:fontFamily="sans-serif-light"
+                android:text="@string/button_clear"
+                android:textColor="@color/red"
+                android:textSize="@dimen/button_text_size"
+                android:textAlignment="center"/>
 
-        <Button
-            android:id="@+id/button_percentage"
-            android:layout_width="@dimen/number_button_width"
-            android:layout_height="@dimen/number_button_height"
-            android:layout_margin="@dimen/button_margin"
-            android:text="@string/button_percentage" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button_delete"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/button_margin"
+                android:layout_weight="1"
+                android:backgroundTint="@color/transparent_grey"
+                android:fontFamily="sans-serif-light"
+                android:text="@string/button_delete"
+                android:textColor="@color/orange"
+                android:textSize="@dimen/button_text_size" />
 
-        <Button
-            android:id="@+id/button_division"
-            android:layout_width="@dimen/number_button_width"
-            android:layout_height="@dimen/number_button_height"
-            android:layout_margin="@dimen/button_margin"
-            android:text="@string/button_division" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button_percentage"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/button_margin"
+                android:layout_weight="1"
+                android:backgroundTint="@color/transparent_grey"
+                android:fontFamily="sans-serif-light"
+                android:text="@string/button_percentage"
+                android:textColor="@color/green"
+                android:textSize="@dimen/button_text_size" />
 
-    </LinearLayout>
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button_division"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/button_margin"
+                android:layout_weight="1"
+                android:backgroundTint="@color/transparent_grey"
+                android:fontFamily="sans-serif-light"
+                android:text="@string/button_division"
+                android:textColor="@color/green"
+                android:textSize="@dimen/button_text_size" />
+        </TableRow>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
 
-        <Button
-            android:id="@+id/button7"
-            android:layout_width="@dimen/number_button_width"
-            android:layout_height="@dimen/number_button_height"
-            android:layout_margin="@dimen/button_margin"
-            android:text="@string/button_7" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button7"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/button_margin"
+                android:layout_weight="1"
+                android:backgroundTint="@color/transparent_grey"
+                android:fontFamily="sans-serif-light"
+                android:text="@string/button_7"
+                android:textSize="@dimen/button_text_size" />
 
-        <Button
-            android:id="@+id/button8"
-            android:layout_width="@dimen/number_button_width"
-            android:layout_height="@dimen/number_button_height"
-            android:layout_margin="@dimen/button_margin"
-            android:text="@string/button_8" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button8"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/button_margin"
+                android:layout_weight="1"
+                android:backgroundTint="@color/transparent_grey"
+                android:fontFamily="sans-serif-light"
+                android:text="@string/button_8"
+                android:textSize="@dimen/button_text_size" />
 
-        <Button
-            android:id="@+id/button9"
-            android:layout_width="@dimen/number_button_width"
-            android:layout_height="@dimen/number_button_height"
-            android:layout_margin="@dimen/button_margin"
-            android:text="@string/button_9" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button9"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/button_margin"
+                android:layout_weight="1"
+                android:backgroundTint="@color/transparent_grey"
+                android:fontFamily="sans-serif-light"
+                android:text="@string/button_9"
+                android:textSize="@dimen/button_text_size" />
 
-        <Button
-            android:id="@+id/button_multiplication"
-            android:layout_width="@dimen/number_button_width"
-            android:layout_height="@dimen/number_button_height"
-            android:layout_margin="@dimen/button_margin"
-            android:text="@string/button_multiplication" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button_multiplication"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/button_margin"
+                android:layout_weight="1"
+                android:backgroundTint="@color/transparent_grey"
+                android:fontFamily="sans-serif-light"
+                android:text="@string/button_multiplication"
+                android:textColor="@color/green"
+                android:textSize="@dimen/button_text_size" />
+        </TableRow>
 
-    </LinearLayout>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button4"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/button_margin"
+                android:layout_weight="1"
+                android:backgroundTint="@color/transparent_grey"
+                android:fontFamily="sans-serif-light"
+                android:text="@string/button_4"
+                android:textSize="@dimen/button_text_size" />
 
-        <Button
-            android:id="@+id/button4"
-            android:layout_width="@dimen/number_button_width"
-            android:layout_height="@dimen/number_button_height"
-            android:layout_margin="@dimen/button_margin"
-            android:text="@string/button_4" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button5"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/button_margin"
+                android:layout_weight="1"
+                android:backgroundTint="@color/transparent_grey"
+                android:fontFamily="sans-serif-light"
+                android:text="@string/button_5"
+                android:textSize="@dimen/button_text_size" />
 
-        <Button
-            android:id="@+id/button5"
-            android:layout_width="@dimen/number_button_width"
-            android:layout_height="@dimen/number_button_height"
-            android:layout_margin="@dimen/button_margin"
-            android:text="@string/button_5" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button6"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/button_margin"
+                android:layout_weight="1"
+                android:backgroundTint="@color/transparent_grey"
+                android:fontFamily="sans-serif-light"
+                android:text="@string/button_6"
+                android:textSize="@dimen/button_text_size" />
 
-        <Button
-            android:id="@+id/button6"
-            android:layout_width="@dimen/number_button_width"
-            android:layout_height="@dimen/number_button_height"
-            android:layout_margin="@dimen/button_margin"
-            android:text="@string/button_6" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button_subtraction"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/button_margin"
+                android:layout_weight="1"
+                android:backgroundTint="@color/transparent_grey"
+                android:fontFamily="sans-serif-light"
+                android:text="@string/button_subtraction"
+                android:textColor="@color/green"
+                android:textSize="@dimen/button_text_size" />
 
-        <Button
-            android:id="@+id/button_subtraction"
-            android:layout_width="@dimen/number_button_width"
-            android:layout_height="@dimen/number_button_height"
-            android:layout_margin="@dimen/button_margin"
-            android:text="@string/button_subtraction" />
+        </TableRow>
 
-    </LinearLayout>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/button_margin"
+                android:layout_weight="1"
+                android:backgroundTint="@color/transparent_grey"
+                android:fontFamily="sans-serif-light"
+                android:text="@string/button_1"
+                android:textSize="@dimen/button_text_size" />
 
-        <Button
-            android:id="@+id/button1"
-            android:layout_width="@dimen/number_button_width"
-            android:layout_height="@dimen/number_button_height"
-            android:layout_margin="@dimen/button_margin"
-            android:text="@string/button_1" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/button_margin"
+                android:layout_weight="1"
+                android:backgroundTint="@color/transparent_grey"
+                android:fontFamily="sans-serif-light"
+                android:text="@string/button_2"
+                android:textSize="@dimen/button_text_size" />
 
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="@dimen/number_button_width"
-            android:layout_height="@dimen/number_button_height"
-            android:layout_margin="@dimen/button_margin"
-            android:text="@string/button_2" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/button_margin"
+                android:layout_weight="1"
+                android:backgroundTint="@color/transparent_grey"
+                android:fontFamily="sans-serif-light"
+                android:text="@string/button_3"
+                android:textSize="@dimen/button_text_size" />
 
-        <Button
-            android:id="@+id/button3"
-            android:layout_width="@dimen/number_button_width"
-            android:layout_height="@dimen/number_button_height"
-            android:layout_margin="@dimen/button_margin"
-            android:text="@string/button_3" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button_sum"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/button_margin"
+                android:layout_weight="1"
+                android:backgroundTint="@color/transparent_grey"
+                android:fontFamily="sans-serif-light"
+                android:text="@string/button_sum"
+                android:textColor="@color/green"
+                android:textSize="@dimen/button_text_size" />
+        </TableRow>
 
-        <Button
-            android:id="@+id/button_sum"
-            android:layout_width="@dimen/number_button_width"
-            android:layout_height="@dimen/number_button_height"
-            android:layout_margin="@dimen/button_margin"
-            android:text="@string/button_sum" />
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
 
-    </LinearLayout>
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button_positive_or_negative"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/button_margin"
+                android:layout_weight="1"
+                android:backgroundTint="@color/transparent_grey"
+                android:fontFamily="sans-serif-light"
+                android:text="@string/button_positive_or_negative"
+                android:textSize="@dimen/button_text_size" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button0"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/button_margin"
+                android:layout_weight="1"
+                android:backgroundTint="@color/transparent_grey"
+                android:fontFamily="sans-serif-light"
+                android:text="@string/button_0"
+                android:textSize="@dimen/button_text_size" />
 
-        <Button
-            android:id="@+id/button_positive_or_negative"
-            android:layout_width="@dimen/number_button_width"
-            android:layout_height="@dimen/number_button_height"
-            android:layout_margin="@dimen/button_margin"
-            android:text="@string/button_positive_or_negative" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button_comma"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/button_margin"
+                android:layout_weight="1"
+                android:backgroundTint="@color/transparent_grey"
+                android:fontFamily="sans-serif-light"
+                android:text="@string/button_comma"
+                android:textSize="@dimen/button_text_size" />
 
-        <Button
-            android:id="@+id/button0"
-            android:layout_width="@dimen/number_button_width"
-            android:layout_height="@dimen/number_button_height"
-            android:layout_margin="@dimen/button_margin"
-            android:text="@string/button_0" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button_result"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/button_margin"
+                android:layout_weight="1"
+                android:backgroundTint="@color/green"
+                android:fontFamily="sans-serif-light"
+                android:text="@string/button_result"
+                android:textColor="@color/white"
+                android:textSize="@dimen/button_text_size" />
 
-        <Button
-            android:id="@+id/button_comma"
-            android:layout_width="@dimen/number_button_width"
-            android:layout_height="@dimen/number_button_height"
-            android:layout_margin="@dimen/button_margin"
-            android:text="@string/button_comma" />
+        </TableRow>
 
-        <Button
-            android:id="@+id/button_result"
-            android:layout_width="@dimen/number_button_width"
-            android:layout_height="@dimen/number_button_height"
-            android:layout_margin="@dimen/button_margin"
-            android:text="@string/button_result" />
+    </TableLayout>
 
-    </LinearLayout>
 
 </LinearLayout>

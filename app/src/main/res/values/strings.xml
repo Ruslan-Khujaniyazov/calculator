@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Calculator</string>
     <string name="button_clear">C</string>
-    <string name="button_delete">del</string>
+    <string name="button_delete">CE</string>
     <string name="button_percentage">%</string>
     <string name="button_division">÷</string>
     <string name="button_7">7</string>
@@ -20,4 +20,5 @@
     <string name="button_0">0</string>
     <string name="button_comma">,</string>
     <string name="button_result">=</string>
+    <string name="start_hint_0">0</string>
 </resources>
