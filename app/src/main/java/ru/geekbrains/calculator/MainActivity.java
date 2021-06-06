@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
     //согласно этой статье  http://tools.android.com/tips/non-constant-fields
     public void onNumPressed(int buttonId) {
 
-        if (buttonId == R.id.button0) {
+        if (buttonId == R.id.button0) {   //todo если 0 первая цифра, то только 1 раз нажать можно. или при нажатии , выставить автоматом 0,
             addNumToEnterTextView("0");
         } else if (buttonId == R.id.button1) {
             addNumToEnterTextView("1");
@@ -69,6 +69,10 @@ public class MainActivity extends AppCompatActivity {
             addNumToEnterTextView("8");
         } else if (buttonId == R.id.button9) {
             addNumToEnterTextView("9");
+        } else if (buttonId == R.id.button_comma) { //todo проверить нет ли уже запятой. затем при переводе в double replace "," by "."
+            addNumToEnterTextView(",");
+        } else if (buttonId == R.id.button_positive_or_negative) { //todo отработать повторное нажатие - если есть минус, то уалить
+            numEnterTextView.append("-", 0, 0);
         }
 
     }
