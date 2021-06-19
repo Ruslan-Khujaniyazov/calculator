@@ -14,8 +14,9 @@ public class CalculationLogic {
     private static final String SUBTRACTION = "-";
     private static final String MULTIPLICATION = "×";
     private static final String DIVISION = "÷";
+    private static final String PERCENTAGE = "%";
     private static final String EQUALS = "=";
-    private final Double ZERO = 0.0;
+    private static final Double ZERO = 0.0;
 
     private EditText numEnterTextView;
     private TextView resultTextView;
@@ -42,27 +43,56 @@ public class CalculationLogic {
         if (buttonId == R.id.button_multiplication) {
             calculationButtonAction(MULTIPLICATION);
         }
+        if (buttonId == R.id.button_percentage) {
+            calculationButtonAction(PERCENTAGE);
+        }
         if (buttonId == R.id.button_equals) {
             calculationButtonAction(EQUALS);
         }
         if (buttonId == R.id.button_delete) {
-            numEnterTextView.getText().delete(numEnterTextView.length() - 1, numEnterTextView.length());
+            if(numEnterTextView.length() > 0) {
+                numEnterTextView.getText().delete(numEnterTextView.length() - 1, numEnterTextView.length());
+            }
         }
         if (buttonId == R.id.button_clear) {
             numEnterTextView.getText().clear();
-            resultTextView.getEditableText().clear();
+            resultTextViewClear();
             arg1 = null;
             arg2 = null;
             result = null;
         }
     }
 
-    //todo если ничего не введено то никаких действий
     private void calculationButtonAction(String mathematicalAction) {
 
         String argument;
 
-        if (mathematicalAction.equals(EQUALS) & arg1 != null) {
+        if (mathematicalAction.equals(PERCENTAGE)) {
+            if (result != null & numEnterTextView.getText().length() == 0) {
+                resultTextViewClear();
+                arg1 = result;
+                result = arg1 / 100;
+                numEnterTextView.getText().clear();
+                resultTextView.append(String.format("%s %s %s %s", arg1, mathematicalAction, EQUALS, result));
+                arg1 = null;
+
+            } else if (arg1 == null) {
+                resultTextViewClear();
+                argument = String.valueOf(numEnterTextView.getText());
+                arg1 = Double.valueOf(argument);
+                result = arg1 / 100;
+                numEnterTextView.getText().clear();
+                resultTextView.append(String.format("%s", result));
+                arg1 = null;
+            } else {
+                argument = String.valueOf(numEnterTextView.getText());
+                arg2 = Double.valueOf(argument);
+                numEnterTextView.getText().clear();
+                result = arg1 + (arg1 * arg2 / 100);
+                resultTextView.append(String.format("%s %s %s %s", arg2, mathematicalAction, EQUALS, result));
+            }
+
+        } else if (mathematicalAction.equals(EQUALS) & arg1 != null) {
             try {
                 argument = String.valueOf(numEnterTextView.getText());
                 arg2 = Double.valueOf(argument);
@@ -75,17 +105,25 @@ public class CalculationLogic {
                 numEnterTextView.getText().clear();
             }
 
-        } else if(arg1 == null & result != null & !mathematicalAction.equals(EQUALS)) {
+        } else if (result != null & !mathematicalAction.equals(EQUALS)) {
             try {
-                arg1 = result;
-                resultTextView.getEditableText().clear(); //todo check if it clears correctly for every new math action
-                resultTextView.append(String.format("%s %s ", arg1, mathematicalAction));
-                currentAction = mathematicalAction;
-                result = null;
+                if (numEnterTextView.getText().length() == 0) {
+                    arg1 = result;
+                    resultTextViewClear();
+                    resultTextView.append(String.format("%s %s ", arg1, mathematicalAction));
+                    currentAction = mathematicalAction;
+                    result = null;
+                } else {
+                    resultTextView.getEditableText().clear();
+                    argument = String.valueOf(numEnterTextView.getText());
+                    arg1 = Double.valueOf(argument);
+                    numEnterTextView.getText().clear();
+                    resultTextView.append(String.format("%s %s ", arg1, mathematicalAction));
+                    currentAction = mathematicalAction;
+                }
             } catch (NumberFormatException e) {
                 numEnterTextView.getText().clear();
             }
-
 
         } else if (arg1 == null & !mathematicalAction.equals(EQUALS)) {
             try {
@@ -101,41 +139,62 @@ public class CalculationLogic {
             }
 
         } else {
-            try  {
+            try {
                 argument = String.valueOf(numEnterTextView.getText());
                 arg2 = Double.valueOf(argument);
                 numEnterTextView.getText().clear();
                 mathAction(currentAction, arg1, arg2);
                 currentAction = mathematicalAction;
                 arg1 = result;
-                resultTextView.getEditableText().clear();
+                resultTextViewClear();
                 resultTextView.append(String.format("%s %s ", arg1, mathematicalAction));
                 arg2 = null;
                 result = null;
             } catch (NumberFormatException e) {
                 numEnterTextView.getText().clear();
             }
-        }
 
+        }
     }
 
-        private void mathAction(String action, Double arg1, Double arg2) {
-            if(action.equals(ADDITION)) {
+    private void mathAction(String action, Double arg1, Double arg2) {
+        switch (action) {
+            case ADDITION:
                 result = arg1 + arg2;
+                break;
 
-            } else if(action.equals(SUBTRACTION)) {
+            case SUBTRACTION:
                 result = arg1 - arg2;
+                break;
 
-            } else if(action.equals(DIVISION)) {
+            case DIVISION:
                 result = arg1 / arg2;
+                break;
 
-            } else if(action.equals(MULTIPLICATION)) {
+            case MULTIPLICATION:
                 result = arg1 * arg2;
-            }
+                break;
+
+            /*case PERCENTAGE:
+                if (arg2 != null) {
+                    result = arg1 + (arg1 * arg2 / 100);
+                } else {
+                    result = arg1 / 100;
+                }
+                break;*/
         }
     }
 
-    //todo Division by zero
+    private void resultTextViewClear() {
+        if(resultTextView.length() > 0) {
+            resultTextView.getEditableText().clear();
+        }
+    }
+
+
+}
+
+//todo Division by zero
 
 //todo отработаьь: если после уже нажатого знака хочу поменять, то при нажатии на другой знак, должен меняться и curr action перезаписать
 
