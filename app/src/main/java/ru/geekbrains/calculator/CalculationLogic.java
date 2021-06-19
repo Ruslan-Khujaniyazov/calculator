@@ -16,6 +16,7 @@ public class CalculationLogic {
     private static final String DIVISION = "÷";
     private static final String PERCENTAGE = "%";
     private static final String EQUALS = "=";
+    private static final String COMMA = ",";
     private static final Double ZERO = 0.0;
 
     private EditText numEnterTextView;
@@ -28,6 +29,43 @@ public class CalculationLogic {
 
     public void setResultTextView(TextView resultTextView) {
         this.resultTextView = resultTextView;
+    }
+
+    public void onNumPressed(int buttonId) {
+
+        if (buttonId == R.id.button0) {   //todo если 0 первая цифра, то только 1 раз нажать можно. или при нажатии , выставить автоматом 0,
+                addNumToEnterTextView("0");
+        } else if (buttonId == R.id.button1) {
+            addNumToEnterTextView("1");
+        } else if (buttonId == R.id.button2) {
+            addNumToEnterTextView("2");
+        } else if (buttonId == R.id.button3) {
+            addNumToEnterTextView("3");
+        } else if (buttonId == R.id.button4) {
+            addNumToEnterTextView("4");
+        } else if (buttonId == R.id.button5) {
+            addNumToEnterTextView("5");
+        } else if (buttonId == R.id.button6) {
+            addNumToEnterTextView("6");
+        } else if (buttonId == R.id.button7) {
+            addNumToEnterTextView("7");
+        } else if (buttonId == R.id.button8) {
+            addNumToEnterTextView("8");
+        } else if (buttonId == R.id.button9) {
+            addNumToEnterTextView("9");
+        } else if (buttonId == R.id.button_comma) { //todo проверить нет ли уже запятой. затем при переводе в double replace "," by "."
+            addNumToEnterTextView(",");
+        } else if (buttonId == R.id.button_positive_or_negative) { //todo отработать повторное нажатие - если есть минус, то уалить
+            numEnterTextView.append("-", 0, 0);
+        }
+
+    }
+
+    private void addNumToEnterTextView(String num) {
+        if (numEnterTextView.getText().toString().equals("0") && !num.equals(COMMA)) {
+            numEnterTextView.getText().clear();
+        }
+        numEnterTextView.append(num);
     }
 
     public void onCalculationButtonPressed(int buttonId) {
@@ -174,14 +212,6 @@ public class CalculationLogic {
             case MULTIPLICATION:
                 result = arg1 * arg2;
                 break;
-
-            /*case PERCENTAGE:
-                if (arg2 != null) {
-                    result = arg1 + (arg1 * arg2 / 100);
-                } else {
-                    result = arg1 / 100;
-                }
-                break;*/
         }
     }
 
