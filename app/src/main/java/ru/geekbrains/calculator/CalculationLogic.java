@@ -16,6 +16,7 @@ public class CalculationLogic {
     private static final String DIVISION = "÷";
     private static final String PERCENTAGE = "%";
     private static final String EQUALS = "=";
+    private static final String NEGATIVE_SIGN = "-";
     private static final String COMMA = ",";
     private static final Double ZERO = 0.0;
 
@@ -53,10 +54,16 @@ public class CalculationLogic {
             addNumToEnterTextView("8");
         } else if (buttonId == R.id.button9) {
             addNumToEnterTextView("9");
-        } else if (buttonId == R.id.button_comma) { //todo проверить нет ли уже запятой. затем при переводе в double replace "," by "."
-            addNumToEnterTextView(",");
-        } else if (buttonId == R.id.button_positive_or_negative) { //todo отработать повторное нажатие - если есть минус, то уалить
-            numEnterTextView.append("-", 0, 0);
+        } else if (buttonId == R.id.button_comma) { //todo при переводе в double replace "," by "."
+            if (!numEnterTextView.getText().toString().contains(COMMA)) {
+                addNumToEnterTextView(",");
+            }
+        } else if (buttonId == R.id.button_positive_or_negative) {
+            if (numEnterTextView.length() != 0 && !numEnterTextView.getText().toString().equals("0") && !numEnterTextView.getText().toString().contains(NEGATIVE_SIGN)) {
+                numEnterTextView.getText().insert(0, NEGATIVE_SIGN);
+            } else if (numEnterTextView.getText().toString().contains(NEGATIVE_SIGN)) {
+                numEnterTextView.getText().delete(0, 1);
+            }
         }
 
     }
@@ -224,10 +231,13 @@ public class CalculationLogic {
 
 }
 
-//todo Division by zero
-
-//todo отработаьь: если после уже нажатого знака хочу поменять, то при нажатии на другой знак, должен меняться и curr action перезаписать
+//todo Division by zero всплыв "нельзя делить на ноль"
 
 //todo Decimal format
 
 //todo кол-во знаков в одном числе
+
+//изменил switch case на if/else из-за предупреждения "Resource IDs will be non-final in Android Gradle Plugin version 7.0, avoid using them in switch case statements"
+//согласно этой статье  http://tools.android.com/tips/non-constant-fields
+
+//отработать: если после уже нажатого знака хочу поменять, то при нажатии на другой знак, должен меняться и curr action перезаписать

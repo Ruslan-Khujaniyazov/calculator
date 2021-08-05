@@ -61,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
             findViewById(id).setOnClickListener(numPressed);
         }
 
+
         View.OnClickListener actionButtonPressed = v -> calculationLogicInstance.onCalculationButtonPressed(v.getId());
 
         for (int id : actionButtonsId) {
@@ -69,8 +70,5 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-
-    //изменил на if/else из-за предупреждения "Resource IDs will be non-final in Android Gradle Plugin version 7.0, avoid using them in switch case statements"
-    //согласно этой статье  http://tools.android.com/tips/non-constant-fields
 
 }
