@@ -286,14 +286,14 @@
                 android:textSize="@dimen/button_text_size" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/button_comma"
+                android:id="@+id/button_period"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_margin="@dimen/button_margin"
                 android:layout_weight="1"
                 android:backgroundTint="@color/transparent_grey"
                 android:fontFamily="serif"
-                android:text="@string/button_comma"
+                android:text="@string/button_period"
                 android:textSize="@dimen/button_text_size" />
 
             <androidx.appcompat.widget.AppCompatButton

@@ -18,7 +18,7 @@
     <string name="button_sum">+</string>
     <string name="button_positive_or_negative">+/-</string>
     <string name="button_0">0</string>
-    <string name="button_comma">,</string>
+    <string name="button_period">.</string>
     <string name="button_result">=</string>
     <string name="start_hint_0">0</string>
 </resources>

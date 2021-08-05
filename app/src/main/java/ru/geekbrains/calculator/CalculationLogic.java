@@ -17,7 +17,7 @@ public class CalculationLogic {
     private static final String PERCENTAGE = "%";
     private static final String EQUALS = "=";
     private static final String NEGATIVE_SIGN = "-";
-    private static final String COMMA = ",";
+    private static final String PERIOD = ".";
     private static final Double ZERO = 0.0;
 
     private EditText numEnterTextView;
@@ -54,9 +54,9 @@ public class CalculationLogic {
             addNumToEnterTextView("8");
         } else if (buttonId == R.id.button9) {
             addNumToEnterTextView("9");
-        } else if (buttonId == R.id.button_comma) { //todo при переводе в double replace "," by "."
-            if (!numEnterTextView.getText().toString().contains(COMMA)) {
-                addNumToEnterTextView(",");
+        } else if (buttonId == R.id.button_period) {
+            if (!numEnterTextView.getText().toString().contains(PERIOD)) {
+                addNumToEnterTextView(PERIOD);
             }
         } else if (buttonId == R.id.button_positive_or_negative) {
             if (numEnterTextView.length() != 0 && !numEnterTextView.getText().toString().equals("0") && !numEnterTextView.getText().toString().contains(NEGATIVE_SIGN)) {
@@ -69,7 +69,7 @@ public class CalculationLogic {
     }
 
     private void addNumToEnterTextView(String num) {
-        if (numEnterTextView.getText().toString().equals("0") && !num.equals(COMMA)) {
+        if (numEnterTextView.getText().toString().equals("0") && !num.equals(PERIOD)) {
             numEnterTextView.getText().clear();
         }
         numEnterTextView.append(num);

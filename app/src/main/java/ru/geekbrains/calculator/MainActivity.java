@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
                 R.id.button7,
                 R.id.button8,
                 R.id.button9,
-                R.id.button_comma,
+                R.id.button_period,
                 R.id.button_positive_or_negative
 
 
