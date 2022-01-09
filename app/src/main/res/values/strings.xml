@@ -1,24 +1,25 @@
-<resources>
-    <string name="app_name">Calculator</string>
-    <string name="button_clear">C</string>
-    <string name="button_delete">CE</string>
-    <string name="button_percentage">%</string>
-    <string name="button_division">÷</string>
-    <string name="button_7">7</string>
-    <string name="button_8">8</string>
-    <string name="button_9">9</string>
-    <string name="button_multiplication">×</string>
-    <string name="button_4">4</string>
-    <string name="button_5">5</string>
-    <string name="button_6">6</string>
-    <string name="button_subtraction">-</string>
-    <string name="button_1">1</string>
-    <string name="button_2">2</string>
-    <string name="button_3">3</string>
-    <string name="button_sum">+</string>
-    <string name="button_positive_or_negative">+/-</string>
-    <string name="button_0">0</string>
-    <string name="button_period">.</string>
-    <string name="button_result">=</string>
-    <string name="start_hint_0">0</string>
+ <resources>
+    <string name="app_name" translatable="false">Calculator</string>
+    <string name="button_clear" translatable="false">C</string>
+    <string name="button_delete" translatable="false">CE</string>
+    <string name="button_percentage" translatable="false">%</string>
+    <string name="button_division" translatable="false">÷</string>
+    <string name="button_7" translatable="false">7</string>
+    <string name="button_8" translatable="false">8</string>
+    <string name="button_9" translatable="false">9</string>
+    <string name="button_multiplication" translatable="false">×</string>
+    <string name="button_4" translatable="false">4</string>
+    <string name="button_5" translatable="false">5</string>
+    <string name="button_6" translatable="false">6</string>
+    <string name="button_subtraction" translatable="false">-</string>
+    <string name="button_1" translatable="false">1</string>
+    <string name="button_2" translatable="false">2</string>
+    <string name="button_3" translatable="false">3</string>
+    <string name="button_sum" translatable="false">+</string>
+    <string name="button_positive_or_negative" translatable="false">+/-</string>
+    <string name="button_0" translatable="false">0</string>
+    <string name="button_period" translatable="false">.</string>
+    <string name="button_result" translatable="false">=</string>
+    <string name="start_hint_0" translatable="false">0</string>
+    <string name="division_by_zero">На ноль делить нельзя!</string>
 </resources>

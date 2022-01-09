@@ -3,6 +3,7 @@ package ru.geekbrains.calculator;
 
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class CalculationLogic {
 
@@ -35,7 +36,7 @@ public class CalculationLogic {
     public void onNumPressed(int buttonId) {
 
         if (buttonId == R.id.button0) {   //todo если 0 первая цифра, то только 1 раз нажать можно. или при нажатии , выставить автоматом 0,
-                addNumToEnterTextView("0");
+            addNumToEnterTextView("0");
         } else if (buttonId == R.id.button1) {
             addNumToEnterTextView("1");
         } else if (buttonId == R.id.button2) {
@@ -95,7 +96,7 @@ public class CalculationLogic {
             calculationButtonAction(EQUALS);
         }
         if (buttonId == R.id.button_delete) {
-            if(numEnterTextView.length() > 0) {
+            if (numEnterTextView.length() > 0) {
                 numEnterTextView.getText().delete(numEnterTextView.length() - 1, numEnterTextView.length());
             }
         }
@@ -129,6 +130,7 @@ public class CalculationLogic {
                 numEnterTextView.getText().clear();
                 resultTextView.append(String.format("%s", result));
                 arg1 = null;
+
             } else {
                 argument = String.valueOf(numEnterTextView.getText());
                 arg2 = Double.valueOf(argument);
@@ -141,11 +143,17 @@ public class CalculationLogic {
             try {
                 argument = String.valueOf(numEnterTextView.getText());
                 arg2 = Double.valueOf(argument);
-                numEnterTextView.getText().clear();
-                mathAction(currentAction, arg1, arg2);
-                resultTextView.append(String.format("%s %s %s", arg2, mathematicalAction, result));
-                arg1 = null;
-                arg2 = null;
+                if (arg2 == 0) {
+                    Toast.makeText(numEnterTextView.getContext(), R.string.division_by_zero, Toast.LENGTH_SHORT).show();
+
+                } else {
+                    numEnterTextView.getText().clear();
+                    mathAction(currentAction, arg1, arg2);
+                    resultTextView.append(String.format("%s %s %s", arg2, mathematicalAction, result));
+                    arg1 = null;
+                    arg2 = null;
+                }
+
             } catch (NumberFormatException e) {
                 numEnterTextView.getText().clear();
             }
@@ -223,7 +231,7 @@ public class CalculationLogic {
     }
 
     private void resultTextViewClear() {
-        if(resultTextView.length() > 0) {
+        if (resultTextView.length() > 0) {
             resultTextView.getEditableText().clear();
         }
     }
@@ -231,13 +239,11 @@ public class CalculationLogic {
 
 }
 
-//todo Division by zero всплыв "нельзя делить на ноль"
+//todo размеры кнопок вынести в стили
 
-//todo Decimal format
+//todo Decimal format для результата?
 
 //todo кол-во знаков в одном числе
 
 //изменил switch case на if/else из-за предупреждения "Resource IDs will be non-final in Android Gradle Plugin version 7.0, avoid using them in switch case statements"
 //согласно этой статье  http://tools.android.com/tips/non-constant-fields
-
-//отработать: если после уже нажатого знака хочу поменять, то при нажатии на другой знак, должен меняться и curr action перезаписать
